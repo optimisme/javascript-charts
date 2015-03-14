@@ -1,6 +1,15 @@
 ## Javascript charts library
 
-This library allow to easily draw charts using javascript, the resulting charts are drawn on Canvas or SVG.
+This library allows to easily draw charts using javascript, the resulting charts are
+drawn optionally on Canvas or SVG.
+
+### Usage
+
+Clone the project with:
+
+https://github.com/optimisme/javascript-charts.git
+
+And open 'chart-examples.html' or 'chart-types.html' with the internet browser.
 
 ### Types of charts
 
