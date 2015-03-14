@@ -4,7 +4,8 @@ This library allow to easily draw charts using javascript and Canvas or SVG.
 
 ### Types of charts
 
-Chart bars
+#### Chart bars
+
 ![egT00](https://raw.github.com/optimisme/javascript-charts/master/captures/egT00.png)
 
     // ChartBars
@@ -13,7 +14,8 @@ Chart bars
     this.gapSection = 0;
     chart.paint('graph00SVG');
 
-Chart bars adder
+#### Chart bars adder
+
 ![egT01](https://raw.github.com/optimisme/javascript-charts/master/captures/egT01.png)
 
     // ChartBarsAdder
@@ -26,7 +28,8 @@ Chart bars adder
     chart.labels.style = 'rgb(256,256,256)';
     chart.paint('graph01SVG');
 
-Chart lines
+#### Chart lines
+
 ![egT02](https://raw.github.com/optimisme/javascript-charts/master/captures/egT02.png)
 
     // ChartLines
@@ -41,7 +44,8 @@ Chart lines
     chart.labels.style = 'rgb(256,256,256)';
     chart.paint('graph02SVG');
 
-Chart lines compact drawing (side by side)
+#### Chart lines compact drawing (side by side)
+
 ![egT03](https://raw.github.com/optimisme/javascript-charts/master/captures/egT03.png)
 
     // ChartLines
@@ -58,7 +62,8 @@ Chart lines compact drawing (side by side)
     chart.xAxis.sideBySide = false;
     chart.paint('graph03SVG');
 
-Chart areas
+#### Chart areas
+
 ![egT04](https://raw.github.com/optimisme/javascript-charts/master/captures/egT04.png)
 
     // ChartAreas
@@ -69,7 +74,8 @@ Chart areas
     chart.yAxis.min = -5;
     chart.paint('graph04SVG');
 
-Chart circle
+#### Chart circle
+
 ![egT05](https://raw.github.com/optimisme/javascript-charts/master/captures/egT05.png)
 
     // ChartCircle: if more than one column is provided the computed value is the sum of all columns
@@ -82,7 +88,8 @@ Chart circle
     chart.labels.position = 'top';
     chart.paint('graph05SVG');
 
-Chart circle exploded
+#### Chart circle exploded
+
 ![egT06](https://raw.github.com/optimisme/javascript-charts/master/captures/egT06.png)
 
     // ChartCircle
