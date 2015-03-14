@@ -7,7 +7,7 @@ drawn optionally on Canvas or SVG.
 
 Clone the project with:
 
-https://github.com/optimisme/javascript-charts.git
+git clone https://github.com/optimisme/javascript-charts.git
 
 And open 'chart-examples.html' or 'chart-types.html' with the internet browser.
 
