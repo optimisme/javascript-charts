@@ -1,0 +1,202 @@
+<html>
+<script src="./js-charts.js"></script>
+<style>
+.code {
+    background-color: #eee;
+    display: block;
+    font-family: monospace;
+    left: 10px;
+    overflow: auto;
+    padding: 10px;
+    right: 10px;
+    unicode-bidi: embed;
+}
+</style>
+<body>
+
+<br><b>Chart bars:</b>
+<br/><svg id="graph00SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartBars
+    var chart = new ChartBars();
+    chart.loadExample();
+    this.gapSection = 0;
+    chart.paint('graph00SVG');
+</script>
+<div class="code"><pre>
+    // ChartBars
+    var chart = new ChartBars();
+    chart.loadExample();
+    this.gapSection = 0;
+    chart.paint('graph00SVG');
+</pre></div>
+
+<br><b>Chart bars adder:</b>
+<br/><svg id="graph01SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartBarsAdder
+    var chart = new ChartBarsAdder();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases','Gifts'];
+    chart.data.table = [[23,26,20,32],[6,3,15,14],[12,15,20,18]];
+    chart.gapSection = 1.25;
+    chart.labels.position = 'middle'; 
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.paint('graph01SVG');
+</script>
+<div class="code"><pre>
+    // ChartBarsAdder
+    var chart = new ChartBarsAdder();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases','Gifts'];
+    chart.data.table = [[23,26,20,32],[6,3,15,14],[12,15,20,18]];
+    chart.gapSection = 1.25;
+    chart.labels.position = 'middle'; 
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.paint('graph01SVG');
+</pre></div>
+
+<br><b>Chart lines:</b>
+<br/><svg id="graph02SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartLines
+    var chart = new ChartLines();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.width = 8;
+    chart.symbol = 'circle'; // none, circle, square 
+    chart.showLine = true;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.paint('graph02SVG');
+</script>
+<div class="code"><pre>
+    // ChartLines
+    var chart = new ChartLines();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.width = 8;
+    chart.symbol = 'circle'; // none, circle, square 
+    chart.showLine = true;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.paint('graph02SVG');
+</pre></div>
+
+<br><b>Chart lines, compact drawing: (side by side)</b>
+<br/><svg id="graph03SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartLines
+    var chart = new ChartLines();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.width = 8;
+    chart.symbol = 'circle'; // none, circle, square 
+    chart.showLine = true;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.xAxis.showStepsFirst=true;
+    chart.xAxis.sideBySide = false;
+    chart.paint('graph03SVG');
+</script>
+<div class="code"><pre>
+    // ChartLines
+    var chart = new ChartLines();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.width = 8;
+    chart.symbol = 'circle'; // none, circle, square 
+    chart.showLine = true;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.xAxis.showStepsFirst=true;
+    chart.xAxis.sideBySide = false;
+    chart.paint('graph03SVG');
+</pre></div>
+
+<br><b>Chart areas</b>
+<br/><svg id="graph04SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartAreas
+    var chart = new ChartAreas();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.yAxis.min = -5;
+    chart.paint('graph04SVG');
+</script>
+<div class="code"><pre>
+    // ChartAreas
+    var chart = new ChartAreas();
+    chart.data.columnName = ['2007','2008','2009','2010'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20,32],[6,-4,15,14]];
+    chart.yAxis.min = -5;
+    chart.paint('graph04SVG');
+</pre></div>
+
+<br><b>Chart circle</b>
+<br/><svg id="graph05SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartCircle: if more than one column is provided the computed value is the sum of all columns
+    var chart = new ChartCircle();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,10],[4,23]];
+    chart.format = 'number'; // 'percentage' or 'number'
+    chart.rotation = 45; // #number, 180=half circle
+    chart.labels.position = 'top';
+    chart.paint('graph05SVG');
+
+</script>
+<div class="code"><pre>
+    // ChartCircle: if more than one column is provided the computed value is the sum of all columns
+    var chart = new ChartCircle();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,10],[4,23]];
+    chart.format = 'number'; // 'percentage' or 'number'
+    chart.rotation = 45; // #number, 180=half circle
+    chart.labels.position = 'top';
+    chart.paint('graph05SVG');
+</pre></div>
+
+<br><b>Chart circle (exploded)</b>
+<br/><svg id="graph06SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartCircle
+    var chart = new ChartCircle();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23],[4]];
+    chart.legend.show = false;
+    chart.legendOnLabel = true;
+    chart.labels.position = 1.5; // #number, 1=circle radius
+    chart.labels.decimals = 2;
+    chart.format = 'percentage'; // 'percentage' or 'number'
+    chart.explode = 0.02; //  #number, for example 0.02;
+    chart.rotation = 0; // #number, 180=half circle
+    chart.paint('graph06SVG');
+</script>
+<div class="code"><pre>
+    // ChartCircle
+    var chart = new ChartCircle();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23],[4]];
+    chart.legend.show = false;
+    chart.legendOnLabel = true;
+    chart.labels.position = 1.5; // #number, 1=circle radius
+    chart.labels.decimals = 2;
+    chart.format = 'percentage'; // 'percentage' or 'number'
+    chart.explode = 0.02; //  #number, for example 0.02;
+    chart.rotation = 0; // #number, 180=half circle
+    chart.paint('graph06SVG');
+</pre></div>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+<html>
+<script src="./js-charts.js"></script>
+<style>
+.code {
+    background-color: #eee;
+    display: block;
+    font-family: monospace;
+    left: 10px;
+    overflow: auto;
+    padding: 10px;
+    right: 10px;
+    unicode-bidi: embed;
+}
+</style>
+<body>
+
+<br><b>Simple example:</b>
+<br/><svg id="graph00SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<br/><canvas id="graph00" width="568" height="320" style="border: 1px solid #000;"></canvas>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.paint('graph00SVG'); // 'graph00SVG' is the id of the SVG object
+    chart.paint('graph00'); // 'graph00' is the id of the canvas object
+    // Only one object is necessary, this is just an example of both objects
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.paint('graph00SVG'); // 'graph00SVG' is the id of the SVG object
+    chart.paint('graph00'); // 'graph00' is the id of the canvas object
+    // Only one object is necessary, this is just an example of both objects
+</pre></div>
+
+<br><b>Change background:</b>
+<br/><svg id="graph01SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.background = 'rgb(200,200,200)';
+    chart.paint('graph01SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.background = 'rgb(200,200,200)';
+    chart.paint('graph01SVG');
+</pre></div>
+
+<br><b>Swap columns and rows:</b>
+<br/><svg id="graph02SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.data.vertical =  true;
+    chart.paint('graph02SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.data.vertical =  true;
+    chart.paint('graph02SVG');
+</pre></div>
+
+<br><b>Modify frame size:</b>
+<br/><svg id="graph03SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.x = 50;
+    chart.draw.y = -200; // Negative value means relative to top
+    chart.draw.width =  -50; // Negative value means relative to right
+    chart.draw.height =  -50;
+    chart.legend.width = -75;
+    chart.paint('graph03SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.x = 50;
+    chart.draw.y = -200; // Negative value means relative to top
+    chart.draw.width =  -50; // Negative value means relative to right
+    chart.draw.height =  -50;
+    chart.legend.width = -75;
+    chart.paint('graph03SVG');
+</pre></div>
+<br/><svg id="graph03bSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.x = 50;
+    chart.draw.y = 50; 
+    chart.draw.width = 325; 
+    chart.draw.height =  200;
+    chart.paint('graph03bSVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.draw.x = 50;
+    chart.draw.y = 50; 
+    chart.draw.width = 325; 
+    chart.draw.height =  200;
+    chart.paint('graph03bSVG');
+</pre></div>
+
+<br><b>Modify the title:</b>
+<br/><svg id="graph04SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.title.show = true;
+    chart.title.text = "New chart title";
+    chart.title.font = 'Bold 18px Arial';
+    chart.title.style = 'rgb(60,108,157)';
+    chart.paint('graph04SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.title.show = true;
+    chart.title.text = "New chart title";
+    chart.title.font = 'Bold 18px Arial';
+    chart.title.style = 'rgb(60,108,157)';
+    chart.paint('graph04SVG');
+</pre></div>
+
+<br><b>Modify chart data:</b>
+<br/><svg id="graph05SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[12,15,14]];
+    chart.paint('graph05SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[12,15,14]];
+    chart.paint('graph05SVG');
+</pre></div>
+
+<br><b>Modify chart legend:</b>
+<br/><svg id="graph06SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23],[12]];
+    chart.gapBars = 0.2;
+    chart.draw.y = 75;
+    chart.draw.width = -50;
+    chart.xAxis.showLabels = false;
+    chart.yAxis.min = 0; 
+    chart.legend.x = 50;
+    chart.legend.y = 35;
+    chart.legend.width =  -50; // Negative means the canvas width less that value
+    chart.legend.show = true;
+    chart.legend.gap = 35;
+    chart.legend.font = '14px Arial';
+    chart.legend.style = 'rgb(60,108,157)';
+    chart.paint('graph06SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23],[12]];
+    chart.gapBars = 0.2;
+    chart.draw.y = 75;
+    chart.draw.width = -50;
+    chart.xAxis.showLabels = false;
+    chart.yAxis.min = 0; 
+    chart.legend.x = 50;
+    chart.legend.y = 35;
+    chart.legend.width =  -50; // Negative means the canvas width less that value
+    chart.legend.show = true;
+    chart.legend.gap = 35;
+    chart.legend.font = '14px Arial';
+    chart.legend.style = 'rgb(60,108,157)';
+    chart.paint('graph06SVG');
+</pre></div>
+<br/><svg id="graph07SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.legend.show = false;
+    chart.draw.width = -50; // Negative means the drawing canvas width-50
+    chart.paint('graph07SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.legend.show = false;
+    chart.draw.width = -50; // Negative means the drawing canvas width-50
+    chart.paint('graph07SVG');
+</pre></div>
+<br/><svg id="graph07bSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.colors = 'blue';
+    chart.draw.x = 50;
+    chart.draw.y = -200; // Negative value means relative to top
+    chart.draw.width =  -50; // Negative value means relative to right
+    chart.draw.height =  -50;
+    chart.gapBars = 0.2;
+    chart.xAxis.showLabels = false;
+    chart.data.rowName = ['A','YES','TOP','B','HOUSE GARDEN GRASS','FLOWERS.','WATER'];
+    chart.data.table = [[8],[7],[6],[5],[4],[3],[2]];
+    chart.legend.x= 75;
+    chart.legend.y= 75;
+    chart.legend.width = -75;
+    chart.legend.direction = "down";
+    chart.paint('graph07bSVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.colors = 'blue';
+    chart.draw.x = 50;
+    chart.draw.y = -200; // Negative value means relative to top
+    chart.draw.width =  -50; // Negative value means relative to right
+    chart.draw.height =  -50;
+    chart.gapBars = 0.2;
+    chart.xAxis.showLabels = false;
+    chart.data.rowName = ['A','YES','TOP','B','HOUSE GARDEN GRASS','FLOWERS.','WATER'];
+    chart.data.table = [[8],[7],[6],[5],[4],[3],[2]];
+    chart.legend.x= 75;
+    chart.legend.y= 75;
+    chart.legend.width = -75;
+    chart.legend.direction = "down";
+    chart.paint('graph07bSVG');
+</pre></div>
+
+<br><b>Modify colors:</b>
+<br/><svg id="graph08SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // Using a predefined palette
+    var chart = new ChartCircle();
+    chart.data.rowName = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R'];
+    chart.data.table = [[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10]];
+    chart.colors = 'bright'; // 'bright','corrugated','fun','portfolio','silk','watermark','blue','brown','green','gray'
+    chart.legend.gap = 12;
+    chart.paint('graph08SVG');
+</script>
+<div class="code"><pre>
+    // Using a predefined palette
+    var chart = new ChartCircle();
+    chart.data.rowName = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R'];
+    chart.data.table = [[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10],[10]];
+    chart.colors = 'bright'; // 'bright','corrugated','fun','portfolio','silk','watermark','blue','brown','green','gray'
+    chart.legend.gap = 12;
+    chart.paint('graph08SVG');
+</pre></div>
+<br/><svg id="graph09SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // Using a colors array
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.colors = ['rgb(150,0,0)','#00aa00'];
+    chart.paint('graph09SVG');
+</script>
+<div class="code"><pre>
+    // Using a colors array
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.colors = ['rgb(150,0,0)','#00aa00'];
+    chart.paint('graph09SVG');
+</pre></div>
+
+<br><b>Modify labels:</b>
+<br/><svg id="graph10SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.labels.show = true;
+    chart.labels.position = 'top'; 
+    // 'top', 'over', 'middle', 'bottom'
+    chart.labels.font = '14px Arial';
+    chart.labels.style = 'data';
+    chart.paint('graph10SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.labels.show = true;
+    chart.labels.position = 'top'; 
+    // 'top', 'over', 'middle', 'bottom'
+    chart.labels.font = '14px Arial';
+    chart.labels.style = 'data';
+    chart.paint('graph10SVG');
+</pre></div>
+<br/><svg id="graph11SVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.labels.show = true;
+    chart.labels.position = 'bottom'; 
+    chart.labels.font = '10px Arial';
+    chart.labels.style = 'rgb(256,256,256)'; 
+    chart.labels.decimals = 1;
+    // 'data' or color value
+    chart.paint('graph11SVG');
+</script>
+<div class="code"><pre>
+    var chart = new ChartBars();
+    chart.loadExample();
+    chart.labels.show = true;
+    chart.labels.position = 'bottom'; 
+    chart.labels.font = '10px Arial';
+    chart.labels.style = 'rgb(256,256,256)'; 
+    chart.labels.decimals = 1;
+    // 'data' or color value
+    chart.paint('graph11SVG');
+</pre></div>
+
+<br><b>Modify chart axis:</b>
+<br/><svg id="graph12aSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // X axis:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[4,15,14]];
+    chart.xAxis.showAxis = true;
+    chart.xAxis.showLabels = true;
+    chart.xAxis.showSteps = true;
+    chart.xAxis.showStepsFirst = true;
+    chart.xAxis.font = '12px Arial';
+    chart.xAxis.style = 'rgb(183,47,45)';
+    chart.xAxis.rotation = -35; // #number lower than 0, for example -45
+    chart.xAxis.axisStyle = 'rgb(183,47,45)';
+    chart.xAxis.axisWidth = 3;
+    chart.xAxis.stepStyle = 'rgb(200,200,0)';
+    chart.xAxis.stepWidth = 2;
+    chart.yAxis.min = 0;
+    chart.paint('graph12aSVG');
+</script>
+<div class="code"><pre>
+    // X axis:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[4,15,14]];
+    chart.xAxis.showAxis = true;
+    chart.xAxis.showLabels = true;
+    chart.xAxis.showSteps = true;
+    chart.xAxis.showStepsFirst = true;
+    chart.xAxis.font = '12px Arial';
+    chart.xAxis.style = 'rgb(183,47,45)';
+    chart.xAxis.rotation = -35; // #number lower than 0, for example -45
+    chart.xAxis.axisStyle = 'rgb(183,47,45)';
+    chart.xAxis.axisWidth = 3;
+    chart.xAxis.stepStyle = 'rgb(200,200,0)';
+    chart.xAxis.stepWidth = 2;
+    chart.yAxis.min = 0;
+    chart.paint('graph12aSVG');
+</pre></div>
+<br/><svg id="graph12bSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // Y axis:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[4,15,14]];
+    chart.yAxis.showAxis = true;
+    chart.yAxis.showLabels = true;
+    chart.yAxis.showSteps = true;
+    chart.yAxis.font = '16px Arial';        
+    chart.yAxis.style = 'rgb(183,47,45)';
+    chart.yAxis.rotation = 20; // #number lower than 0, for example -45
+    chart.yAxis.axisStyle = 'rgb(183,47,45)';
+    chart.yAxis.stepStyle = 'rgb(253,77,75)';
+    chart.yAxis.axisWidth = 3;
+    chart.yAxis.stepWidth = 2;
+    chart.yAxis.showStepZero = false;
+    chart.yAxis.showStepZeroLabel = false;
+    chart.yAxis.min = 0; // auto, or #number
+    chart.yAxis.max = 30; // auto, or #number
+    chart.yAxis.steps = 10; // auto, or #number >2
+    chart.yAxis.format = 'number'; // number, percentage
+    chart.yAxis.decimals = 2; // #number of decimals at vertical axis
+    chart.paint('graph12bSVG');
+</script>
+<div class="code"><pre>
+    // Y axis:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[4,15,14]];
+    chart.yAxis.showAxis = true;
+    chart.yAxis.showLabels = true;
+    chart.yAxis.showSteps = true;
+    chart.yAxis.font = '16px Arial';        
+    chart.yAxis.style = 'rgb(183,47,45)';
+    chart.yAxis.rotation = 20; // #number lower than 0, for example -45
+    chart.yAxis.axisStyle = 'rgb(183,47,45)';
+    chart.yAxis.stepStyle = 'rgb(253,77,75)';
+    chart.yAxis.axisWidth = 3;
+    chart.yAxis.stepWidth = 2;
+    chart.yAxis.showStepZero = false;
+    chart.yAxis.showStepZeroLabel = false;
+    chart.yAxis.min = 0; // auto, or #number
+    chart.yAxis.max = 30; // auto, or #number
+    chart.yAxis.steps = 10; // auto, or #number >2
+    chart.yAxis.format = 'number'; // number, percentage
+    chart.yAxis.decimals = 2; // #number of decimals at vertical axis
+    chart.paint('graph12bSVG');
+</pre></div>
+<br/><svg id="graph12cSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // Y axis, 'zero' line:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[-4,15,14]];
+    chart.xAxis.showAxis = false;
+    chart.xAxis.rotation = 35;
+    chart.yAxis.showAxis = false;
+    chart.yAxis.showLabels = false;
+    chart.yAxis.showStepZero = true;
+    chart.yAxis.showStepZeroLabel = true;
+    chart.yAxis.stepZeroStyle = 'rgb(200,0,0)';
+    chart.yAxis.stepZeroWidth = 2;
+    chart.legend.x=-125;
+    chart.legend.y=80;
+    chart.paint('graph12cSVG');
+</script>
+<div class="code"><pre>
+    // Y axis, 'zero' line:
+    var chart = new ChartBars();
+    chart.data.columnName = ['2007','2008','2009'];
+    chart.data.rowName = ['Sells','Purchases'];
+    chart.data.table = [[23,26,20],[-4,15,14]];
+    chart.xAxis.showAxis = false;
+    chart.xAxis.rotation = 35;
+    chart.yAxis.showAxis = false;
+    chart.yAxis.showLabels = false;
+    chart.yAxis.showStepZero = true;
+    chart.yAxis.showStepZeroLabel = true;
+    chart.yAxis.stepZeroStyle = 'rgb(200,0,0)';
+    chart.yAxis.stepZeroWidth = 2;
+    chart.legend.x=-125;
+    chart.legend.y=80;
+    chart.paint('graph12cSVG');
+</pre></div>
+
+<br><b>Interaction : (not availabe for Canvas objects)</b>
+<br/><svg id="graphIntSVG" width="568" height="320" style="border: 1px solid #000;"></svg>
+<script>
+    // ChartBars
+    var chart = new ChartLines();
+    chart.loadExample();
+    chart.symbol = 'square';
+    chart.width = 10;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.action.actionClick = "actionClickFunction";
+    chart.action.actionMove = "actionMoveFunction";
+    chart.action.actionOver = "actionOverFunction";
+    chart.action.actionOut = "actionOutFunction";
+    chart.paint('graphIntSVG');
+    chartPointer = chart;
+
+    actionClickFunction = function(event,position,type) { 
+        alert("Calls the defined function\nwith the table position as a parameter,\n\nRow: "+position[0]+"\nColumn: "+position[1]); 
+    }
+    actionMoveFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label');
+        obj.style.left = document.body.scrollLeft+event.clientX+15+"px";
+        obj.style.top = document.body.scrollTop+event.clientY+15+"px";
+        
+        var row = position[0];
+        var col=position[1];
+        var text= "Row: "+row;
+        if(position.length==2) text += " Column: "+col+" @"+charPointer.data.getField(row,col);
+        if (type=='legend') text = "Legend: "+charPointer.data.getRowName(row);
+        obj.innerHTML=text;
+    }
+    actionOverFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'visible';
+    }
+    actionOutFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'hidden';
+    }
+</script>
+<div class="code"><pre>
+    // ChartBars
+    var chart = new ChartLines();
+    chart.loadExample();
+    chart.symbol = 'square';
+    chart.width = 10;
+    chart.labels.position = 'over';
+    chart.labels.style = 'rgb(256,256,256)';
+    chart.action.actionClick = "actionClickFunction";
+    chart.action.actionMove = "actionMoveFunction";
+    chart.action.actionOver = "actionOverFunction";
+    chart.action.actionOut = "actionOutFunction";
+    chart.paint('graphIntSVG');
+    chartPointer = chart;
+
+    actionClickFunction = function(event,position,type) { 
+        alert("Calls the defined function\nwith the table position as a parameter,\n\nRow: "+position[0]+"\nColumn: "+position[1]); 
+    }
+    actionMoveFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label');
+        obj.style.left = document.body.scrollLeft+event.clientX+15+"px";
+        obj.style.top = document.body.scrollTop+event.clientY+15+"px";
+        
+        var row = position[0];
+        var col=position[1];
+        var text= "Row: "+row;
+        if(position.length==2) text += " Column: "+col+" @"+charPointer.data.getField(row,col);
+        if (type=='legend') text = "Legend: "+charPointer.data.getRowName(row);
+        obj.innerHTML=text;
+    }
+    actionOverFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'visible';
+    }
+    actionOutFunction = function(event,position,type) {
+        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'hidden';
+    }
+</pre></div>
+
+</body>
+</html>
