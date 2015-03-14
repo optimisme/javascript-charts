@@ -366,28 +366,27 @@ And open 'chart-examples.html' or 'chart-types.html' with the internet browser.
     chart.action.actionOver = "actionOverFunction";
     chart.action.actionOut = "actionOutFunction";
     chart.paint('graphIntSVG');
-    chartPointer = chart;
 
     actionClickFunction = function(event,position,type) { 
         alert("Calls the defined function\nwith the table position as a parameter,\n\nRow: "+position[0]+"\nColumn: "+position[1]); 
     }
     actionMoveFunction = function(event,position,type) {
-        var obj = document.getElementById('graph20Label');
+        var obj = document.getElementById('graphIntLabel');
         obj.style.left = document.body.scrollLeft+event.clientX+15+"px";
         obj.style.top = document.body.scrollTop+event.clientY+15+"px";
-        
+
         var row = position[0];
         var col=position[1];
         var text= "Row: "+row;
-        if(position.length==2) text += " Column: "+col+" @"+charPointer.data.getField(row,col);
-        if (type=='legend') text = "Legend: "+charPointer.data.getRowName(row);
+        if(position.length==2) text += " Column: "+col+" @"+chart.data.getField(row,col);
+        if (type=='legend') text = "Legend: "+chart.data.getRowName(row);
         obj.innerHTML=text;
     }
     actionOverFunction = function(event,position,type) {
-        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'visible';
+        var obj = document.getElementById('graphIntLabel'); obj.style.visibility = 'visible';
     }
     actionOutFunction = function(event,position,type) {
-        var obj = document.getElementById('graph20Label'); obj.style.visibility = 'hidden';
+        var obj = document.getElementById('graphIntLabel'); obj.style.visibility = 'hidden';
     }
 
 

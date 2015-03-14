@@ -355,7 +355,7 @@ ChartDrawTools = function() {
 }
 
 ChartDrawTools.prototype.getContext = function(canvas) {
-console.log(document.getElementById(canvas));
+
     this.obj = document.getElementById(canvas);
     this.objType = ""+document.getElementById(canvas).constructor;
     
